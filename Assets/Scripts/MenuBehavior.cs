@@ -31,10 +31,10 @@ public class MenuBehavior : MonoBehaviour {
             SceneManager.SetActiveScene(battleScene);
             battleSceneBehavior.Setup(
                 new WildCombatant(
-                    new Pidgey("1", new Stat(10,10), new Stat(10, 10), new Stat(10, 10), new Stat(10, 10), new Stat(10, 10))
+                    new Creature("pidgey", "1", new Stat(10,10), new Stat(10, 10), new Stat(10, 10), new Stat(10, 10), new Stat(10, 10))
                 ),
                 new PlayerCombatant(new Player(new ICreature[] {
-                    new Pidgey("2", new Stat(15,15), new Stat(10, 10), new Stat(12,12), new Stat(10,10), new Stat(10,10))
+                    new Creature("charmander", "2", new Stat(15,15), new Stat(10, 10), new Stat(12,12), new Stat(10,10), new Stat(10,10))
                 }))
             );
             areBattling = true;

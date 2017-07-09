@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class Pidgey : ICreature
+public class Creature : ICreature
 {
-    public Pidgey(string instanceId, Stat hp, Stat speed, Stat attack, Stat specialAttack, Stat defense)
+    public Creature(string creatureId, string instanceId, Stat hp, Stat speed, Stat attack, Stat specialAttack, Stat defense)
     {
+        CreatureId = creatureId;
         InstanceId = instanceId;
         HP = hp;
         Speed = speed;
@@ -13,7 +14,7 @@ public class Pidgey : ICreature
         Defense = defense;
     }
 
-    public string CreatureId { get { return "pidgey"; } }
+    public string CreatureId { get; private set; }
     public string InstanceId { get; private set; }
     public Stat HP { get; private set; }
     public Stat Speed { get; private set; }

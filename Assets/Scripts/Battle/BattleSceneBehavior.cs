@@ -5,8 +5,8 @@ using System.Linq;
 using UnityEngine;
 
 public class BattleSceneBehavior : MonoBehaviour {
-    public BattleEnemy Enemy;
-    public BattleEnemy Hero;
+    public GameObject Enemy;
+    public GameObject Hero;
     public BattleEnemyMapping[] Loader;
 
 	// Use this for initialization
@@ -21,7 +21,7 @@ public class BattleSceneBehavior : MonoBehaviour {
 
     public void Setup(ICombatant enemy, ICombatant hero)
     {
-        Enemy = Instantiate<BattleEnemy>(Loader.First(x => x.Id == enemy.GetStartingCreature().CreatureId).BattleEnemy);
-        Hero = Instantiate<BattleEnemy>(Loader.First(x => x.Id == enemy.GetStartingCreature().CreatureId).BattleEnemy);
+        Instantiate<BattleEnemy>(Loader.First(x => x.Id == enemy.GetStartingCreature().CreatureId).BattleEnemy, Enemy.transform, false);
+        Instantiate<BattleEnemy>(Loader.First(x => x.Id == hero.GetStartingCreature().CreatureId).BattleEnemy, Hero.transform, false);
     }
 }

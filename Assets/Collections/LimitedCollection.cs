@@ -71,7 +71,7 @@ public class LimitedCollection<TItem> : IList<TItem> where TItem : class
 
     public IEnumerator<TItem> GetEnumerator()
     {
-        return (IEnumerator<TItem>)_items.GetEnumerator();
+        return ((IEnumerable<TItem>)_items).GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()
