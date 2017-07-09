@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class BattleSceneBehavior : MonoBehaviour {
     public BattleEnemy Enemy;
-    public BattleHero Hero;
+    public BattleEnemy Hero;
     public BattleEnemyMapping[] Loader;
 
 	// Use this for initialization
@@ -22,5 +22,6 @@ public class BattleSceneBehavior : MonoBehaviour {
     public void Setup(ICombatant enemy, ICombatant hero)
     {
         Enemy = Instantiate<BattleEnemy>(Loader.First(x => x.Id == enemy.GetStartingCreature().CreatureId).BattleEnemy);
+        Hero = Instantiate<BattleEnemy>(Loader.First(x => x.Id == enemy.GetStartingCreature().CreatureId).BattleEnemy);
     }
 }

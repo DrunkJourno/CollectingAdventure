@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class MenuBehavior : MonoBehaviour {
     Scene battleScene;
@@ -25,6 +26,7 @@ public class MenuBehavior : MonoBehaviour {
         }
         else if (shouldBattle && battleScene.isLoaded)
         {
+            DisableRoots();
             battleSceneBehavior = battleScene.GetRootGameObjects().Select(x => x.GetComponent<BattleSceneBehavior>()).First(x => x != null);
             SceneManager.SetActiveScene(battleScene);
             battleSceneBehavior.Setup(
@@ -37,6 +39,14 @@ public class MenuBehavior : MonoBehaviour {
             );
             areBattling = true;
             shouldBattle = false;
+        }
+    }
+
+    private void DisableRoots()
+    {
+        foreach (var gameObject in SceneManager.GetActiveScene().GetRootGameObjects())
+        {
+            gameObject.SetActive(false);
         }
     }
 }
