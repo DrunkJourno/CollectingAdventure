@@ -1,7 +1,12 @@
 ﻿public interface ICreature
 {
-    string TypeId { get; }
+    string CreatureId { get; }
     string InstanceId { get; }
-    int HP { get; set; }
-    int Speed { get; set; }
+
+    Stat HP { get; }
+    Stat Speed { get; }
+    Stat Attack { get; }
+    Stat SpecialAttack { get; }
+    Stat Defense { get; }
+    bool CanBeActive { get; }
 }

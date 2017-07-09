@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Assets.Scripts;
+using Assets.Scripts.Battle;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -25,7 +27,14 @@ public class MenuBehavior : MonoBehaviour {
         {
             battleSceneBehavior = battleScene.GetRootGameObjects().Select(x => x.GetComponent<BattleSceneBehavior>()).First(x => x != null);
             SceneManager.SetActiveScene(battleScene);
-            battleSceneBehavior.Setup(new Wild(new Pidgey("1", 10)));
+            battleSceneBehavior.Setup(
+                new WildCombatant(
+                    new Pidgey("1", new Stat(10,10), new Stat(10, 10), new Stat(10, 10), new Stat(10, 10), new Stat(10, 10))
+                ),
+                new PlayerCombatant(new Player(new ICreature[] {
+                    new Pidgey("2", new Stat(15,15), new Stat(10, 10), new Stat(12,12), new Stat(10,10), new Stat(10,10))
+                }))
+            );
             areBattling = true;
             shouldBattle = false;
         }

@@ -19,8 +19,8 @@ public class BattleSceneBehavior : MonoBehaviour {
 		
 	}
 
-    public void Setup(Wild wild)
+    public void Setup(ICombatant enemy, ICombatant hero)
     {
-        Enemy = Instantiate<BattleEnemy>(Loader.First(x => x.Id == wild.Creature.TypeId).BattleEnemy);
+        Enemy = Instantiate<BattleEnemy>(Loader.First(x => x.Id == enemy.GetStartingCreature().CreatureId).BattleEnemy);
     }
 }
