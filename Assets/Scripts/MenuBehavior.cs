@@ -13,9 +13,7 @@ public class MenuBehavior : MonoBehaviour {
     bool shouldBattle, areBattling;
 	// Use this for initialization
 	void Start () {
-        SceneManager.LoadScene("Battle", LoadSceneMode.Additive);
-        battleScene = SceneManager.GetSceneByName("Battle");
-        shouldBattle = true;
+
     }
 	
 	// Update is called once per frame
@@ -40,6 +38,19 @@ public class MenuBehavior : MonoBehaviour {
             areBattling = true;
             shouldBattle = false;
         }
+    }
+
+    public void LoadBattleScene()
+    {
+        SceneManager.LoadScene("Battle", LoadSceneMode.Additive);
+        battleScene = SceneManager.GetSceneByName("Battle");
+        shouldBattle = true;
+    }
+
+    public void Exit()
+    {
+        Debug.Log("Exitting");
+        Application.Quit();
     }
 
     private void DisableRoots()
